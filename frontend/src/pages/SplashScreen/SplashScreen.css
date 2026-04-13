@@ -1,0 +1,225 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+.splash-root {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #efeff2, #5f1e12);
+}
+.splash-logo-image {
+  width: 35%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10; /* mas mataas para hindi matakpan */
+}
+
+@media (max-width: 600px) {
+  .splash-logo-image {
+    width: 50%;
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .splash-logo-image {
+    width: 30%;
+    max-width: 350px;
+  }
+}
+/* Onboarding Page Styles */
+.onboarding-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.onboarding-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.onboarding-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+
+.onboarding-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 600px;
+  padding: 40px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Logo Wrapper */
+.logo-wrapper {
+  margin-bottom: 40px;
+}
+
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 800;
+  color: #7b1e1e;
+}
+
+/* Text Content */
+.text-content {
+  margin-bottom: 40px;
+}
+
+.onboarding-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.onboarding-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffdc00;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.onboarding-description {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+/* Button */
+.button-wrapper {
+  margin-top: 20px;
+}
+
+.get-started-btn {
+  background: #ffdc00;
+  color: #7b1e1e;
+  border: none;
+  padding: 14px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 1px;
+}
+
+.get-started-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 220, 0, 0.3);
+  background: #e6c600;
+}
+
+.btn-arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.get-started-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Decorative Circles */
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 220, 0, 0.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .onboarding-content {
+    padding: 20px;
+  }
+  
+  .onboarding-title {
+    font-size: 36px;
+  }
+  
+  .onboarding-subtitle {
+    font-size: 18px;
+  }
+  
+  .onboarding-description {
+    font-size: 14px;
+  }
+  
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .logo-text {
+    font-size: 22px;
+  }
+  
+  .get-started-btn {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+}
+/* Onboarding Logo Image */
+.onboarding-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

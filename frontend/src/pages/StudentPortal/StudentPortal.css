@@ -1,0 +1,285 @@
+/* StudentPortal.css - Only for Student Home & Sidebar */
+:root {
+  --maroon-dark: #7b1e1e;
+  --maroon-gradient: linear-gradient(180deg, #d9d9d9 0%, #7b1e1e 40%, #5a1515 100%);
+  --gold-primary: #ffdc00;
+  --gold-hover: #e6c600;
+  --text-dark: #333;
+  --bg-light: #f9f9f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+}
+
+/* Portal Root Layout */
+.portal-root {
+  display: flex;
+  min-height: 100vh;
+}
+
+.portal-main {
+  flex-grow: 1;
+  margin-left: 280px;
+  padding: 20px 50px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 280px;
+  background: var(--maroon-gradient);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0 20px 0;
+  position: fixed;
+  height: 100vh;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-circle img { 
+  width: 50%; 
+  height: 50%; 
+  object-fit: cover; 
+}
+
+.nav-menu {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+
+.nav-item.active {
+  background-color: #ffdc00;
+  color: black !important;
+  border-radius: 0 30px 30px 0;
+  margin-right: 20px;
+}
+
+.nav-item.active[href*="/student/home"] {
+  background-color: transparent !important;
+  color: white !important;
+  box-shadow: none !important;
+  border-radius: 0;
+}
+
+.nav-icon { 
+  margin-right: 15px; 
+  font-size: 1.2rem; 
+}
+
+.logout-btn {
+  background: var(--gold-primary);
+  border: none;
+  padding: 12px 40px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Topbar */
+.portal-topbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px;
+  background: transparent;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.topbar-icon-btn {
+  background: none !important;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 28px;
+  transition: transform 0.2s ease;
+}
+
+.topbar-icon-btn:hover {
+  transform: scale(1.1);
+}
+
+.icon-yellow { 
+  color: #FFD700;
+}
+
+.icon-maroon { 
+  color: #7B1E1E;
+}
+
+/* Welcome Card */
+.sh-welcome-card {
+  background: #a32626;
+  background: linear-gradient(135deg, #8b1a1a 0%, #bb2d2d 100%);
+  border-radius: 30px;
+  padding: 60px 50px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 220px;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.sh-welcome-content {
+  z-index: 2;
+  position: relative;
+}
+
+.sh-decor-circle {
+  position: absolute;
+  right: -60px;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.sh-welcome-sub {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+}
+
+.sh-welcome-name {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Quick Action Section */
+.sh-section-label { 
+  color: #333; 
+  font-weight: bold; 
+  font-size: 1.2rem; 
+  margin: 20px 0; 
+}
+
+.sh-quick-card {
+  background: #ffcc00;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+
+.sh-quick-title { 
+  font-weight: bold; 
+  font-size: 1.1rem; 
+  margin-bottom: 5px; 
+}
+
+.sh-quick-desc { 
+  font-size: 0.9rem; 
+  margin-bottom: 15px; 
+  color: #444; 
+}
+
+.sh-upload-btn {
+  background: #801a1a;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Updates Section */
+.sh-updates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sh-viewall-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #333;
+}
+
+.sh-update-card {
+  background: #ffcc00;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 8px solid #cc9900;
+  margin-bottom: 15px;
+}
+
+.sh-update-title { 
+  font-weight: bold; 
+  margin-bottom: 5px; 
+}
+
+.sh-update-meta { 
+  font-size: 0.85rem; 
+  color: #333; 
+  margin: 2px 0; 
+}
+
+/* Sidebar Nav Items */
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 8px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.sidebar-nav-item.active-yellow {
+  background-color: #FFDC00 !important;
+  color: #000 !important;
+  font-weight: bold;
+}
+
+.sidebar-nav-item:hover {
+  background-color: rgba(255, 220, 0, 0.2);
+}
+
+/* Trophy SVG */
+.sh-trophy-svg {
+  margin-left: 20px;
+}

@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+/* LEFT */
+.login-left {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.login-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 10, 10, 0.65);
+}
+
+.login-left-content {
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+  color: white;
+  z-index: 2;
+}
+
+.login-university-badge {
+  border: 2px solid #f0c000;
+  border-radius: 50px;
+  padding: 6px 16px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.login-university-badge span {
+  font-size: 11px;
+  color: #f0c000;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.login-system-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 70px;
+  letter-spacing: 3px;
+}
+
+.login-system-sub {
+  font-size: 15px;
+  max-width: 100;
+
+}
+
+/* RIGHT SIDE */
+/* RIGHT */
+.login-right {
+  width: 50%;
+  height: 100%;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-right-inner {
+  width: 100%;
+  max-width: 350px;
+
+}
+
+/* TITLE */
+.login-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.login-field {
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.login-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background: #eaeaea;
+  color:black;
+  font-size: 14px;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #7a0a0a;
+}
+
+.login-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.login-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* para hindi ma-block yung typing */
+}
+
+.login-input {
+  width: 100%;
+  height: 50px;
+  padding: 10px 10px 10px 40px; /* extra left padding para di mag-overlap sa icon */
+  border: 1px solid #ccc;
+  border-radius:8px;
+}
+
+/* OPTIONS */
+.login-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.login-forgot-btn {
+  border: none;
+  background: none;
+  color: #7a0a0a;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.login-submit-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #7a0a0a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-submit-btn:hover {
+  background: #5e0707;
+}
+
+/* SWITCH */
+.login-switch-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-link-btn {
+  border: none;
+  background: none;
+  color: #7a0a0a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .login-root {
+    flex-direction: column;
+  }
+
+  .login-left {
+    height: 250px;
+  }
+
+  .login-system-name {
+    font-size: 45px;
+  }
+
+  .login-right {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-title {
+    font-size: 26px;
+  }
+
+  .login-input {
+    padding: 12px;
+  }
+
+  .login-submit-btn {
+    padding: 12px;
+  }
+}
+@media (max-width: 768px) {
+  .login-root {
+    flex-direction: column;
+  }
+ 
+  .login-left,
+  .login-right {
+    width: 100%;
+  }
+
+  .login-left {
+    height: 250px;
+  }
+}
+.login-description {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #666;
+}
