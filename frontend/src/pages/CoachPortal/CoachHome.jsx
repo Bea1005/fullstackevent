@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CoachPortal.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+
 const CoachHome = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,7 @@ const CoachHome = () => {
   const fetchCoachData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/coach/profile", {
+      const response = await fetch(`${API}/coach/profile`, {
         headers: { "Authorization": `Bearer ${token}` }
       });
 
@@ -49,7 +51,7 @@ const CoachHome = () => {
   const fetchUpdates = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/coach/updates", {
+      const response = await fetch(`${API}/coach/updates`, {
         headers: { "Authorization": `Bearer ${token}` }
       });
 

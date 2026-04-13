@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './AdminPortal.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+
 const AdminInventory = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ const AdminInventory = () => {
   const fetchEquipment = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/admin/equipment", {
+      const response = await fetch(`${API}/admin/equipment`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -46,7 +48,7 @@ const AdminInventory = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/admin/equipment", {
+      const response = await fetch(`${API}/admin/equipment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +90,7 @@ const AdminInventory = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/api/admin/equipment/${id}`, {
+      const response = await fetch(`${API}/admin/equipment/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -123,7 +125,7 @@ const AdminInventory = () => {
     if (window.confirm("Delete this equipment from record?")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`/api/admin/equipment/${id}`, {
+        const response = await fetch(`${API}/admin/equipment/${id}`, {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${token}`

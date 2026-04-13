@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminPortal.css";
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [stats, setStats] = useState({
@@ -31,7 +33,7 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem("token");
       
-      const response = await fetch("/api/admin/dashboard", {
+      const response = await fetch(`${API}/admin/dashboard`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

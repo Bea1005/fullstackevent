@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { login } from "../../services/api";
 import "./LoginPage.css";
 import gymBackground from "../../assets/gym-background.jpg";
 import emailIcon from "../../assets/email.png";
@@ -17,14 +18,7 @@ export default function ScreenerLogin() {
     setLoading(true);
     
     try {
-      // ✅ Use /api/login (proxy will add /api/v1)
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
+      const data = await login(email, password);
 
       if (data.success && data.user.role === "screener") {
         localStorage.setItem("token", data.token);

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminPortal.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+
 const Borrowing = () => {
   const navigate = useNavigate();
   const [records, setRecords] = useState([]);
@@ -40,7 +42,7 @@ const Borrowing = () => {
   const fetchTotalEquipments = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/admin/equipment", {
+      const response = await fetch(`${API}/admin/equipment`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -69,7 +71,7 @@ const Borrowing = () => {
   const fetchBorrowingRecords = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/admin/borrowing", {
+      const response = await fetch(`${API}/admin/borrowing`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -98,7 +100,7 @@ const Borrowing = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/admin/borrowing", {
+      const response = await fetch(`${API}/admin/borrowing`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +133,7 @@ const Borrowing = () => {
     if (window.confirm("Confirm return of this item?")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`/api/admin/borrowing/${id}/return`, {
+        const response = await fetch(`${API}/admin/borrowing/${id}/return`, {
           method: "PUT",
           headers: {
             "Authorization": `Bearer ${token}`
@@ -158,7 +160,7 @@ const Borrowing = () => {
     if (window.confirm("Are you sure you want to delete this borrowing record? This action cannot be undone.")) {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`/api/admin/borrowing/${id}`, {
+        const response = await fetch(`${API}/admin/borrowing/${id}`, {
           method: "DELETE",
           headers: {
             "Authorization": `Bearer ${token}`

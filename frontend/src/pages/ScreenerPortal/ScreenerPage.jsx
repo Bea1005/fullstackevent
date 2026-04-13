@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ScreenerPage.css';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+
 const ScreenerPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -43,7 +45,7 @@ const ScreenerPage = () => {
   const fetchDashboardData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/screener/dashboard", {
+      const response = await fetch(`${API}/screener/dashboard`, {
         headers: { "Authorization": `Bearer ${token}` }
       });
 
@@ -61,7 +63,7 @@ const ScreenerPage = () => {
   const fetchStudents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("/api/screener/students", {
+      const response = await fetch(`${API}/screener/students`, {
         headers: { "Authorization": `Bearer ${token}` }
       });
 
@@ -125,7 +127,7 @@ const ScreenerPage = () => {
   const handleVerify = async (id, status) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`/api/screener/verify/${id}`, {
+      const response = await fetch(`${API}/screener/verify/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
