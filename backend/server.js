@@ -50,7 +50,12 @@ app.use(BASE_URI, equipmentRoutes);
 app.use(BASE_URI, screenerRoutes);
 app.use(BASE_URI, coachRoutes);
 
-// Root & Health Check
+// Root redirect
+app.get('/', (req, res) => {
+  res.json({ status: 'OK', message: 'GymStat API — visit /api/v1 for endpoints' });
+});
+
+// Base URI & Health Check
 app.get(BASE_URI, (req, res) => {
   res.json({ status: 'OK', message: 'API is running', timestamp: new Date() });
 });
