@@ -7,10 +7,10 @@ import RegisterPage from "./pages/LoginSignup/RegisterPage";
 import AdminLogin from "./pages/LoginSignup/AdminLogin";
 import ScreenerLogin from "./pages/LoginSignup/ScreenerLogin";
 
-// Student Portal Pages - Only Home Page
+// Student Portal
 import StudentHomePage from "./pages/StudentPortal/StudentHome";
 
-// Admin Portal Pages
+// Admin Portal
 import AdminLayout from "./pages/AdminPortal/AdminLayout";
 import AdminDashboard from "./pages/AdminPortal/AdminDashboard";
 import AdminCoaches from "./pages/AdminPortal/AdminCoaches";
@@ -21,17 +21,14 @@ import AdminEquipments from "./pages/AdminPortal/AdminEquipments";
 import AdminBorrowing from "./pages/AdminPortal/AdminBorrowing";
 import AdminSettings from "./pages/AdminPortal/AdminSettings";
 
-// Coach Portal Pages - Only Home Page
+// Coach Portal
 import CoachLayout from "./pages/CoachPortal/CoachLayout";
 import CoachHome from "./pages/CoachPortal/CoachHome";
 
-// Screener Portal Pages
-import ScreenerLayout from "./pages/ScreenerPortal/ScreenerPage";
+// Screener Portal
 import ScreenerPage from "./pages/ScreenerPortal/ScreenerPage";
 
 function App() {
-  console.log("App is rendering!");
-  
   return (
     <Router>
       <Routes>
@@ -44,12 +41,12 @@ function App() {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/screener-login" element={<ScreenerLogin />} />
 
-        {/* Student Portal Routes - Only Home Page */}
+        {/* Student Portal */}
         <Route path="/student/home" element={<StudentHomePage />} />
 
-        {/* Admin Portal Routes */}
+        {/* Admin Portal */}
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Navigate to="/admin/dashboard" />} />
+          <Route index element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="dashboard" element={<AdminDashboard />} />
           <Route path="coaches" element={<AdminCoaches />} />
           <Route path="requirements" element={<AdminRequirements />} />
@@ -60,20 +57,20 @@ function App() {
           <Route path="settings" element={<AdminSettings />} />
         </Route>
 
-        {/* Coach Portal Routes - Only Home Page */}
+        {/* Coach Portal */}
         <Route path="/coach" element={<CoachLayout />}>
-          <Route index element={<Navigate to="/coach/home" />} />
+          <Route index element={<Navigate to="/coach/home" replace />} />
           <Route path="home" element={<CoachHome />} />
         </Route>
 
-        {/* Screener Portal Routes */}
-        <Route path="/screener" element={<ScreenerLayout />}>
-          <Route index element={<Navigate to="/screener/dashboard" />} />
+        {/* Screener Portal */}
+        <Route path="/screener" element={<ScreenerPage />}>
+          <Route index element={<Navigate to="/screener/dashboard" replace />} />
           <Route path="dashboard" element={<ScreenerPage />} />
         </Route>
 
-        {/* Catch-all route for 404 */}
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* 404 fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
